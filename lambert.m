@@ -45,9 +45,16 @@ function [V1,V2]=lambert(mu,R0,R1,dt,z0,dir)
     g=A*sqrt(u/mu);
     V1=(R1-f*R0)/g;
     V2=(gdot*R1-R0)/g;
-    disp('V1=');
-    disp(V1);
-    disp('V2=');
-    disp(V2);
+    if dir==1
+        disp('V0 (short way) =');
+        disp(V1);
+        disp('V1 (short way) =');
+        disp(V2);
+    else
+        disp('V0 (long way) =');
+        disp(V1);
+        disp('V1 (long way) =');
+        disp(V2); 
+        
 end
  
