@@ -17,7 +17,7 @@ function [V1,V2]=lambert(mu,R0,R1,dt,z0,dir)
     A=sgn*sqrt(r0*r1*(1+cos(dtheta)));
     z=z0; %trial value
     relerr=1; %initialize error
-    tol=1e-5; % Accepted relative error
+    tol=1e-6; % Accepted relative error
 
     while relerr>tol
         if z==0 %to avoid division by zero
@@ -36,9 +36,8 @@ function [V1,V2]=lambert(mu,R0,R1,dt,z0,dir)
         znew=z+(dt-sqrt(mu)*z^3*S-A*z^2*C)/v;
         relerr=abs(znew-z)/z;
         z=znew;
-
-
     end
+    
     % use value of z obtained to determine v1,v2
     f=1-u/r0;
     gdot=1-u/r1;
